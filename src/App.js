@@ -2,10 +2,10 @@ import './App.css';
 import {
   Routes,
   Route,
-  Link,
+  // Link,
   NavLink,
-  useMatch,
-  useResolvedPath
+  // useMatch,
+  // useResolvedPath
 } from "react-router-dom";
 import Home from "./routes/home";
 import About from "./routes/about";
@@ -62,15 +62,15 @@ function App() {
 
 export default App;
 
-function CustomLink({ children, to, ...props }) {
-  let resolved = useResolvedPath(to);
-  let match = useMatch({ path: resolved.pathname, end: true });
+// function CustomLink({ children, to, ...props }) {
+//   let resolved = useResolvedPath(to);
+//   let match = useMatch({ path: resolved.pathname, end: true });
 
-  return (
-    <div>
-      <Link style={{ color: match ? "blue" : "none" }} to={to} {...props}>
-        {children}
-      </Link>
-    </div>
-  );
-}
+//   return (
+//     <div>
+//       <Link style={{ color: match ? "blue" : "none" }} to={to} {...props}>
+//         {children}
+//       </Link>
+//     </div>
+//   );
+// }

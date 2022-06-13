@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## lesson Material
+
+This repository is refferd to [React Router v6 はじめでもわかるルーティングの設定方法の基礎](https://reffect.co.jp/react/react-router-6)
+
 ## Available Scripts
 
 In the project directory, you can run:

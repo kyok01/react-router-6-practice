@@ -1,9 +1,10 @@
-import './App.css';
+import "./App.css";
 import {
   Routes,
   Route,
   // Link,
   NavLink,
+  Outlet,
   // useMatch,
   // useResolvedPath
 } from "react-router-dom";
@@ -13,6 +14,7 @@ import Contact from "./routes/contact";
 import Posts from "./routes/posts";
 import Post from "./routes/post";
 import NoMatch from "./routes/nomatch";
+import PostIndex from "./routes/postindex";
 
 function App() {
   return (
@@ -48,12 +50,19 @@ function App() {
         </li>
       </ul>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact message="Hello Contact" />} />
+        <Route element={<Layout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route
+            path="/contact"
+            element={<Contact message="Hello Contact" />}
+          />
+        </Route>
         <Route path="/posts" element={<Posts />}>
+          <Route index element={<PostIndex />} />
           <Route path=":postId" element={<Post />} />
         </Route>
+
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </div>
@@ -61,6 +70,14 @@ function App() {
 }
 
 export default App;
+
+const Layout = () => {
+  return (
+    <div style={{ display: "flex", justifyContent: "center" }}>
+      <Outlet />
+    </div>
+  );
+};
 
 // function CustomLink({ children, to, ...props }) {
 //   let resolved = useResolvedPath(to);
